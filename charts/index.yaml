@@ -3,12 +3,12 @@ entries:
   nginx-app:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2025-10-16T18:07:49.415773438+05:30"
+    created: "2025-10-16T18:35:32.771683834+05:30"
     description: A Helm chart for Kubernetes
     digest: 8964c46ecef2067a90e52e17f5aea83fcbf1df21da0854e04b1ddac55986c19c
     name: nginx-app
     type: application
     urls:
-    - https://deepayan01.github.io/helm-charts/charts/nginx-app-0.1.0.tgz
+    - https://deepayan01.github.io/Helm-k8/charts/nginx-app-0.1.0.tgz
     version: 0.1.0
-generated: "2025-10-16T18:07:49.415038417+05:30"
+generated: "2025-10-16T18:35:32.770324984+05:30"
