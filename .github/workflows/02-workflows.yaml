@@ -1,6 +1,8 @@
 name: 02-workflow events
 
-on: push
+on:
+  - push
+  - pull_request
 
 jobs:
   first-job:
