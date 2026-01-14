@@ -20,3 +20,6 @@ jobs:
       - name: install dependencies
         run: npm ci
         working-directory: ./react-app
+      - name: running the test
+        run: npm run test
+        working-directory: ./react-app
