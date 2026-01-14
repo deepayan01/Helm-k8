@@ -1,0 +1,13 @@
+name: building react application
+
+on:
+  push:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: action/checkout@v4
+      - name: printing the files
+        run: ls -lrt

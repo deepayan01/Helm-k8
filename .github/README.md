@@ -7,3 +7,9 @@
 # github hosted resources 2 core cpu, 7 gb ram, 14 gigabite disk
 
 # Vm is scoped to a job
+
+# default variable
+- $RUNNER_OS
+
+# discussion about action. action is like a release/library which we can use do to 
+# certain  task that is related to particular component/platform etc
