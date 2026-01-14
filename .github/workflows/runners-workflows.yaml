@@ -1,0 +1,19 @@
+name: 03-workflows-runner
+
+on: push
+
+jobs:
+  ubuntu-runner:
+    runs-on: ubuntu-latest
+    steps:
+      - name: show os
+        run: |
+          echo "this jpb is running on ubuntu server"
+          echo "os name: $RUNNER_OS"
+  windows-runner:
+    runs-on: windows-latest
+    steps:
+      - name: show os1
+        run: |
+          echo "this is running on windows latest"
+          echo "os name: $RUNNER_OS"
