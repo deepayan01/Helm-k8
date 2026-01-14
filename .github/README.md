@@ -13,3 +13,21 @@
 
 # discussion about action. action is like a release/library which we can use do to 
 # certain  task that is related to particular component/platform etc
+
+# Event Filter : example push event will be trigger under certain condition
+
+- branches
+- branch_ignore
+- tags
+- tags_ignore
+- path 
+- path_ignore 
+
+# pull_request event have multiple activity which we can leverage
+
+- opened
+- syncronized
+- closed
+- assigned
+- labeled
+- edited
