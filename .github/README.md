@@ -45,5 +45,11 @@
 
 # Command-line arguments for a CI/CD pipeline
 
+| Type      | Use case        |
+| --------- | --------------- |
+| `string`  | Versions, names |
+| `boolean` | Feature flags   |
+| `choice`  | Environments    |
+| `number`  | Limits, counts  |
 
 

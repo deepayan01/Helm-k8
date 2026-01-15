@@ -1,6 +1,5 @@
 name: Expression
 on:
-  push:
   workflow_dispatch:
     inputs:
       debug:
@@ -15,3 +14,5 @@ jobs:
         run: |
           echo "event: ${{ github.event_name }}"
           echo "ref: ${{ github.ref }}"
+
+# added a comment
