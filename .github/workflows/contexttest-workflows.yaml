@@ -6,7 +6,6 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
-    environment: ACTIONS_STEP_DEBUG
     steps:
       - name: checking the github context
         run: |
