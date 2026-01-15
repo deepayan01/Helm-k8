@@ -12,3 +12,6 @@ jobs:
           echo "action-repo: ${{ github.repository }}"
           echo "ref: ${{ github.ref }}"
           echo "event: ${{ github.event_name }}"
+      - name: retriving the repo var
+        run: |
+          echo "variable: ${{ vars.MY_VAR }}"
