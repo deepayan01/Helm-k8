@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: "Checking the control flow"
-        if: ${{ inputs.debug }}
+        if: ${{ inputs.debug == true }}
         run: |
           echo "event: ${{ github.event_name }}"
           echo "ref: ${{ github.ref }}"
