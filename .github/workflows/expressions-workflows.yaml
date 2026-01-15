@@ -12,6 +12,7 @@ jobs:
       - name: "Checking the control flow"
         if: ${{ inputs.debug == true }}
         run: |
+          env | sort
           echo "event: ${{ github.event_name }}"
           echo "ref: ${{ github.ref }}"
 
