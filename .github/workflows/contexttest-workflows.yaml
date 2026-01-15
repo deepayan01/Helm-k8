@@ -9,6 +9,6 @@ jobs:
     steps:
       - name: checking the github context
         run: |
-          echo "action-repo: ${{ github.action_repository }}"
+          echo "action-repo: ${{ github.repository }}"
           echo "ref: ${{ github.ref }}"
           echo "event: ${{ github.event_name }}"
