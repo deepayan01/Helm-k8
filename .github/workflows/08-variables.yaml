@@ -35,4 +35,4 @@ jobs:
     steps:
       - name: pulling the variable from prod
         run: |
-          echo "production_var: ${{ TARGET_VAR_2 }}"
+          echo "production_var: ${{ TARGET_VAR }}"
