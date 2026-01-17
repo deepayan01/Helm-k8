@@ -30,6 +30,7 @@ jobs:
         run: |
           echo "staging_var: ${{ vars.TARGET_VAR }}"
   echo_job_3:
+    needs: echo_job_2
     runs-on: ubuntu-latest
     environment: prod
     steps:
