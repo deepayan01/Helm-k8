@@ -28,11 +28,11 @@ jobs:
     steps:
       - name: pulling the variable from staging env
         run: |
-          echo "staging_var: ${{ TARGET_VAR }}"
+          echo "staging_var: ${{ vars.TARGET_VAR }}"
   echo_job_3:
     runs-on: ubuntu-latest
     environment: prod
     steps:
       - name: pulling the variable from prod
         run: |
-          echo "production_var: ${{ TARGET_VAR }}"
+          echo "production_var: ${{ vars.TARGET_VAR }}"
