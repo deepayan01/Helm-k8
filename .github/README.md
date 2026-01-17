@@ -53,3 +53,13 @@
 | `number`  | Limits, counts  |
 
 
+# Variables: set and reuse non-sensitive information
+
+- It can be define as workflow level, job level and step level as well
+
+# multiple workflows
+
+- we can define at organization level and repository level and environment level.
+- repo variable would be override the organization variable and env variable will override the repo variable.
+
+
