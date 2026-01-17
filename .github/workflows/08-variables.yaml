@@ -22,3 +22,17 @@ jobs:
           echo "print workflow var: ${{ env.env_var }}"
           echo "print job level var: ${{ env.job_var }}"
           echo "print step level var: ${{ env.step_var }}"
+  echo_job_2:
+    runs-on: ubuntu-latest
+    environment: staging
+    steps:
+      - name: pulling the variable from staging env
+        run: |
+          echo "staging_var: ${{ TARGET_VAR }}"
+  echo_job_3:
+    runs-on: ubuntu-latest
+    environment: prod
+    steps:
+      - name: pulling the variable from prod
+        run: |
+          echo "production_var: ${{ TARGET_VAR_2 }}"

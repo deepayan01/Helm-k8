@@ -62,4 +62,9 @@
 - we can define at organization level and repository level and environment level.
 - repo variable would be override the organization variable and env variable will override the repo variable.
 
+# organizational variable & environment variable
+- In organizational variable we can define/select which repo can access that variable
+- setting > security > secrets & variables> action > organizational variable
+
+
 
