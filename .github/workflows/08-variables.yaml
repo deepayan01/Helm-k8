@@ -19,6 +19,6 @@ jobs:
         env:
           step_var: "I am a step level var"
         run: |
-          echo "print workflow var: {{ env.env_var }}"
-          echo "print job level var: {{ env.job_var }}"
-          echo "print step level var: {{ env.step_var }}"
+          echo "print workflow var: ${{ env.env_var }}"
+          echo "print job level var: ${{ env.job_var }}"
+          echo "print step level var: ${{ env.step_var }}"
