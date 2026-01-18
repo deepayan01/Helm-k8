@@ -27,6 +27,7 @@ jobs:
   deploy_nonprod:
     needs:
       - unit_test
+      - lint_build
     runs-on: ubuntu-latest
     steps:
       - name: deploying in non-prod env
