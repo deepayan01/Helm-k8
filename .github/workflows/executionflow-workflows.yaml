@@ -1,0 +1,31 @@
+name: execution workflow
+
+on:
+  workflow_dispatch:
+    inputs:
+      unit:
+        type: boolean
+        description: this defined for adding a condition of controling jobs
+        default: true
+
+jobs:
+  lint_build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: linting build
+        run: |
+          echo "added this step for linting"
+  unit_test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: executing the unit test cases
+        run: |
+          echo " execution of unit test cases"
+      - name: added the conditions
+        if: ${{ !inputs.unit() }}
+  deploy_nonprod:
+    runs-on: ubuntu-latest
+    steps:
+      - name: deploying in non-prod env
+        run: |
+          echo "deployed in non-prod"

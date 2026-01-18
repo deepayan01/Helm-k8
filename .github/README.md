@@ -111,5 +111,18 @@ Step skipped	               false
 
 if: hashFiles('**/package-lock.json') != ''
 
+# Controling execution flow #
+
+- Execute steps and jobs conditionally, and set dependencies between jobs
+
+- standard execution: downstream jobs and steps executed if upstream jobs/steps runs successfully
+- conditionally excution: we can add a condition as if is not been canceld then execute every step
+
+- ex: if: ${{ !cancelled () }} 
+
+- Non dependent execution: if we are excuting multi jobs the job are not other job. they are run separately.
+
+- Dependent execution: "needs" key can be used which we can use to a job dependent on other job for execution.
+
 
 
