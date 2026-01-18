@@ -22,7 +22,8 @@ jobs:
         run: |
           echo " execution of unit test cases"
       - name: added the conditions
-        if: ${{ !inputs.unit() }}
+        if: ${{ !inputs.unit }}
+        run: exit 1
   deploy_nonprod:
     runs-on: ubuntu-latest
     steps:
