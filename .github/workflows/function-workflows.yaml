@@ -1,0 +1,14 @@
+name: functions
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build_function:
+    runs-on: ubuntu-latest
+    steps:
+      - name: sleep command
+        run: sleep 20
+      - name: check about success of previous job
+        if: ${{ success () }}
+        run: echo "previous job successful"

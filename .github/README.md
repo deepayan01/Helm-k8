@@ -66,5 +66,43 @@
 - In organizational variable we can define/select which repo can access that variable
 - setting > security > secrets & variables> action > organizational variable
 
+# Functions
+
+- GitHub Actions functions are Expression language functions
+- Used where	${{ }}, if:, env:, matrix:
+- Comparable to	Ternary + utility helpers
+- Most used	contains(), startsWith(), success(), fromJSON()
+
+# General purpose: startWith(), endsWith(), contains(), fromJson(), toJson()
+
+- Example: if: contains(github.ref, 'release') # It will check all the ref which contain release
+- Default bolean value returns (true/false)
+
+- startWith() : startsWith(github.ref, 'refs/heads/') # same as contains
+
+- endWith() : endWith (github.ref, '/main'): 
+
+- fromJson() : json to object
+
+- toJson () : object to json
+
+# status check function#
+
+- success() , failure(), always(), cancelled()
+
+- success() : All previous steps succeeded
+
+- failure() : Any previous step failed
+
+- cancelled() : Workflow cancelled
+
+- always() : Always (even on failure)
+
+# utility functions
+
+- hashFiles(path) : Hash file contents
+
+if: hashFiles('**/package-lock.json') != ''
+
 
 
