@@ -25,6 +25,8 @@ jobs:
         if: ${{ !inputs.unit }}
         run: exit 1
   deploy_nonprod:
+    needs:
+      - unit_test
     runs-on: ubuntu-latest
     steps:
       - name: deploying in non-prod env
