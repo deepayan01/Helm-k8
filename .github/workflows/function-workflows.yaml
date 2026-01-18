@@ -12,6 +12,3 @@ jobs:
       - name: check about failure of previous job
         if: ${{ failure() }}
         run: echo "print job has been failed"
-      - name: check about success of previous job
-        if: ${{ success () }}
-        run: echo "previous job successful"
