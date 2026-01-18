@@ -8,7 +8,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: sleep command
-        run: sleep 20
+        run: exit 1
       - name: check about failure of previous job
         if: ${{ failure() }}
         run: echo "print job has been failed"
+      - name: check about the success
+        if: ${{ success()}}
+        run: echo "the step is successfully executed"

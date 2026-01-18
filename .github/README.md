@@ -94,6 +94,13 @@
 
 - failure() : Any previous step failed
 
+All previous steps succeeded	false
+Job just started (no steps yet)	false
+Job was cancelled	           false
+Step skipped	               false
+
+- when exit 1 would be the result the condition satisfy
+
 - cancelled() : Workflow cancelled
 
 - always() : Always (even on failure)
