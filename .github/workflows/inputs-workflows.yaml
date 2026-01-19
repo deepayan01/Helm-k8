@@ -6,7 +6,7 @@ on:
       dry-run:
         type: boolean
         description: giving an access to choose wheather running the job or not
-        default: true
+        default: false
       target:
         type: environment
         description: choosing the env
