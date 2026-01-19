@@ -15,7 +15,7 @@ jobs:
     steps:
       - id: new
         run: |
-          echo "tag=${{ inputs.tags() }} >> "$GITHUB_OUTPUT"
+          echo "tag=${{ inputs.tags }}" >> "$GITHUB_OUTPUT"
       - name: passing the output value
         run: |
           echo "actual version is ${{ steps.new.outputs.tag }}"
