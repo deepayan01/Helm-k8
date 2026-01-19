@@ -136,5 +136,13 @@ types:
   - environment: "env picker, use: use in env approval"
   - number: "return as number, use: count, limits"
 
+# outputs are values we produce in one place (in a step/job/workflows) and use it next step o another job or a caller workflow.
+
+- Outputs → discovered during execution
+
+- The step must have an id:
+- Write name=value into $GITHUB_OUTPUT
+- Read it as: steps.<id>.outputs.<name>
+
 
 

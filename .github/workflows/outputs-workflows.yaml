@@ -1,0 +1,14 @@
+name: output-workflow
+
+on:
+  workflow_dispatch:
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - id: new
+        run: |
+          echo " tag=v1-3.2.7 >> $GITHUB_OUTPUT"
+      - name: passing the output value
+        run: |
+          echo "actual version is "$steps.new.outputs.tag"
