@@ -12,6 +12,8 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    outputs:
+      versions: ${{ steps.new.outputs.tag }}
     steps:
       - id: new
         run: |
@@ -19,3 +21,10 @@ jobs:
       - name: passing the output value
         run: |
           echo "actual version is ${{ steps.new.outputs.tag }}"
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: deploy the particular version
+        run: |
+          echo "provided version: ${{ build.needs.outputs.version }}"
