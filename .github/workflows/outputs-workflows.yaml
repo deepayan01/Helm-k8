@@ -27,4 +27,4 @@ jobs:
     steps:
       - name: deploy the particular version
         run: |
-          echo "provided version: ${{ build.needs.outputs.version }}"
+          echo "provided version: ${{ needs.build.outputs.version }}"
