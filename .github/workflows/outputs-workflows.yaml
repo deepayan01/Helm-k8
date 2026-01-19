@@ -2,13 +2,20 @@ name: output-workflow
 
 on:
   workflow_dispatch:
+    inputs:
+      tags:
+        description: tag choices
+        type: choice
+        options:
+          - v1-3.2.7
+          - v1.3.2.8
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
       - id: new
         run: |
-          echo "tag=v1-3.2.7" >> "$GITHUB_OUTPUT"
+          echo "tag=${{ inputs.tags() }} >> "$GITHUB_OUTPUT"
       - name: passing the output value
         run: |
           echo "actual version is ${{ steps.new.outputs.tag }}"
