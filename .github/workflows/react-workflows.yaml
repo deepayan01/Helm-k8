@@ -3,12 +3,6 @@
 name: building react application
 
 on:
-  push:
-    branches:
-      - main
-      - feature/*
-    paths-ignore:
-      - ./docs
   workflow_dispatch:
 
 jobs:
@@ -31,4 +25,6 @@ jobs:
         run: npm ci
       - name: running the test
         run: npm run test
-#       working-directory: ./react-app
+      #       working-directory: ./react-app
+      - name: building
+        run: npm run build
