@@ -124,5 +124,17 @@ if: hashFiles('**/package-lock.json') != ''
 
 - Dependent execution: "needs" key can be used which we can use to a job dependent on other job for execution.
 
+# inputs and outputs#
+
+- inputs provide info to customize workflow and actions
+- it enable us to request specific info form workflow which will be defined and it can be used in runtime.
+
+types:
+  - string : echo "returns string value, use: name, tags, paths"
+  - boolean: echo "returns boolean value, value: true or false"
+  - choice: echo "dropdown control , use: provide a choice to choose"
+  - environment: "env picker, use: use in env approval"
+  - number: "return as number, use: count, limits"
+
 
 

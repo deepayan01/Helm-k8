@@ -1,0 +1,31 @@
+name: input-types
+
+on:
+  workflow_dispatch:
+    inputs:
+      dry-run:
+        type: boolean
+        description: giving an access to choose wheather running the job or not
+        default: true
+      target:
+        type: environment
+        description: choosing the env
+      tag:
+        type: string
+        description: mentioning the tag version
+        default: " "
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: building the job
+        run: |
+          echo "building the job"
+  deploy:
+    runs-on: ubuntu-latest
+    environment: ${{ inputs.target }}
+    if: ${{ inputs.dry_run }}
+    steps:
+      - name: deploying to env
+        run: |
+          echo "deploying to env: ${{ inputs.tag }}"
