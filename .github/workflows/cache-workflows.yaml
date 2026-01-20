@@ -62,6 +62,9 @@ jobs:
           key: ${{ needs.CI.outputs.cache_dependency }}
           restore-keys: |
             dep-cachekey-
+      - name: testing the build
+        run: |
+          npm run test
       - name: build
         run: |
           npm run build
