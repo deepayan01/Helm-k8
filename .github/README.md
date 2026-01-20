@@ -1,6 +1,25 @@
 # On 
+# triggered by repo action. used for CI / PR validation
+#push , pull_request, create, delete, release  : these are trigger events.
+# Schedule events/ time based
+- cron
+# Workflow-to-workflow events
+- workflow_dispatch : manual trigger
+- workflow_call : Triggered by another workflow. enables reusablilty
+- workflow_run : triggered when another workflow finished. sending notifications
 
-#push , pull_request : these are trigger events.
+# External system events
+
+- repository_dispatch
+- deployment_status
+- check_run
+- deployment
+# used for integration/ external CI tool
+
+# Security & policy events. Used for governance.
+# used for compliance workflows
+- dependabot_alert
+- security_alert
 
 # workflow_dispatch: it will enable you to trigger the workflow in UI
 
@@ -143,6 +162,32 @@ types:
 - The step must have an id:
 - Write name=value into $GITHUB_OUTPUT
 - Read it as: steps.<id>.outputs.<name>
+
+
+# caching #
+
+- caching allows us to store files and later retrive them based on a key. workflows can access the cache from their branch or from the default branch
+
+steps:
+  - uses: actions/cache@v3
+
+- key is the exact identifier for a cache entry, usually tied to a lockfile hash.
+
+- restore-keys are prefix-based fallbacks that allow partial cache reuse when the exact key is not found.
+
+- node app 
+- ~/.npm : “Where npm keeps downloaded packages”
+
+- node_modules: Where your app actually uses packages. "npm ci" always delete the old
+node_modules and recreate it.
+
+- so we will caching only the package store which will be ~/.npm folder
+
+
+# with: is how you pass inputs (parameters) to an action.
+
+- It is only used with uses:, not with run.
+
 
 
 

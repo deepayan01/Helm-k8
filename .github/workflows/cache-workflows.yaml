@@ -1,0 +1,71 @@
+name: cache-workflow
+
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: node version mentioned
+        type: string
+        default: "24.*"
+      use-cache:
+        description: wheather we will use cache or not
+        type: boolean
+        default: true
+
+jobs:
+  CI:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./react-app
+    outputs:
+      cache_dependency: ${{ steps.dependency.outputs.dependent }}
+    environment: ACTIONS_STEP_DEBUG
+    steps:
+      - name: checkout the code
+        uses: actions/checkout@v4
+      - name: set up the node
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ inputs.version }}
+      - name: added key as output
+        id: dependenncy
+        run: echo "dependent=dep-cachekey-${{ hashFiles('**/package.json') }} >> "$GITHUB_OUTPUT""
+      - uses: actions/cache@v3
+        id: cache
+        with:
+          path: ~/.npm
+          key: ${{ steps.dependency.outputs.dependent }}
+          restore-keys: |
+            ${{ runner.os }}-build-
+            ${{ runner.os }}-
+      - name: install dependencies
+        if: steps.cache.outputs.cache-hit != 'true'
+        run: npm ci
+  build:
+    runs-on: ubuntu-latest
+    needs: CI
+    steps:
+      - name: checkout the code
+        uses: actions/checkout@v4
+      - name: set up the node
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ inputs.version }}
+      - uses: actions/cache@v3
+        id: cache1
+        if: ${{ inputs.use-cache }}
+        with:
+          path: ~/.npm
+          key: ${{ needs.CI.outputs.cache_dependency }}
+          restore-keys: |
+            ${{ runner.os }}-build-
+            ${{ runner.os }}-
+      - name: lint & build & test
+        run: |
+          npm lint
+          npm build
+          npm test
+
+# we can benefit this if the other job use using the same path ase cache and dependent on other job
+# if both jobs are parellel it can not be helpful
