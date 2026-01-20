@@ -30,15 +30,14 @@ jobs:
           node-version: ${{ inputs.version }}
       - name: added key as output
         id: dependenncy
-        run: echo "dependent=dep-cachekey-${{ hashFiles('**/package.json') }} >> "$GITHUB_OUTPUT""
+        run: echo "dependent=dep-cachekey-${{ hashFiles('./react-app/package-lock.json') }} >> "$GITHUB_OUTPUT""
       - uses: actions/cache@v3
         id: cache
         with:
-          path: ~/.npm
+          path: ./react-app
           key: ${{ steps.dependency.outputs.dependent }}
           restore-keys: |
-            ${{ runner.os }}-build-
-            ${{ runner.os }}-
+            dep-cachekey-
       - name: install dependencies
         if: steps.cache.outputs.cache-hit != 'true'
         run: npm ci
@@ -59,8 +58,7 @@ jobs:
           path: ./react-app
           key: ${{ needs.CI.outputs.cache_dependency }}
           restore-keys: |
-            ${{ runner.os }}-build-
-            ${{ runner.os }}-
+            dep-cachekey-
       - name: build & test
         run: |
           npm run test
