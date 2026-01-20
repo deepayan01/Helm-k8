@@ -189,5 +189,13 @@ node_modules and recreate it.
 - It is only used with uses:, not with run.
 
 
+# artifacts: shared data between jobs and store data after workflows have completed
+
+- stored upto 90 days
+- managed via two actions
+- upload artifact
+- downlaod artifact
+
+
 
 

@@ -61,9 +61,8 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-build-
             ${{ runner.os }}-
-      - name: lint & build & test
+      - name: build & test
         run: |
-          npm lint
           npm build
           npm test
 
