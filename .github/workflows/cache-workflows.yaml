@@ -56,7 +56,7 @@ jobs:
         id: cache1
         if: ${{ inputs.use-cache }}
         with:
-          path: ~/.npm
+          path: ./react-app
           key: ${{ needs.CI.outputs.cache_dependency }}
           restore-keys: |
             ${{ runner.os }}-build-
