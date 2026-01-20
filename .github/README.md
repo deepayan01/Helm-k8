@@ -196,6 +196,13 @@ node_modules and recreate it.
 - upload artifact
 - downlaod artifact
 
+- recommended when the stored files are likely to be accessed outside the workflow
+
+- build outputs
+- test results
+- logs
+
+
 
 
 

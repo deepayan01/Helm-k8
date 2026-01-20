@@ -63,8 +63,8 @@ jobs:
             ${{ runner.os }}-
       - name: build & test
         run: |
-          npm build
-          npm test
+          npm run test
+          npm run build
 
 # we can benefit this if the other job use using the same path ase cache and dependent on other job
 # if both jobs are parellel it can not be helpful
