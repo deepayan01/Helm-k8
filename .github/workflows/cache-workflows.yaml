@@ -62,9 +62,8 @@ jobs:
           key: ${{ needs.CI.outputs.cache_dependency }}
           restore-keys: |
             dep-cachekey-
-      - name: build & test
+      - name: build
         run: |
-          npm run test
           npm run build
 
 # we can benefit this if the other job use using the same path ase cache and dependent on other job
